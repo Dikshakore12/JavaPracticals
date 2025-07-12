@@ -1,0 +1,41 @@
+package com.example1.demo23.Service;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import com.example1.demo23.Exception.ResourceNotFoundException;
+import com.example1.demo23.Module.UserProfile;
+import com.example1.demo23.Repository.Repository;
+
+public class Service {
+    @Autowired
+    Repository repo;
+
+    UserProfile addUser(UserProfile up){
+        return repo.save(up);
+
+    }
+List<UserProfile> getAllUser(){
+    return repo.findAll();
+
+}
+    UserProfile getUserById(Long id){
+    return repo.findById(id).orElseThrow(() ->new ResourceNotFoundException("Employee not fount with id:"+ id));
+
+}
+void deleteUser(Long id){
+    repo.deleteById(id);
+}
+void updateUser(UserProfile up){
+    UserProfile existingUser =getUserById(up.getuId());
+    
+    existingUser.setuId(up.getuId());
+    existingUser.setName(up.getName());
+    existingUser.setAge(up.getAge());
+    existingUser.setAddress(up.getAddress());
+    existingUser.setEmail(up.getEmail());
+    existingUser.setContact(up.getContact());
+    existingUser.setGender(up.getGender());
+//addUser(existingUser)
+}
+}
+

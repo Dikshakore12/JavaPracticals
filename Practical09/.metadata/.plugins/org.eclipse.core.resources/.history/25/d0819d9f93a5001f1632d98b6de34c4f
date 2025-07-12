@@ -1,0 +1,9 @@
+package com.example1.demo23.Repository;
+
+import java.util.ArrayList;
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.example1.DEMO23.Module.UserProfile;
+public interface Repository extends JpaRepository<UserProfile, Long> {
+
+}
+

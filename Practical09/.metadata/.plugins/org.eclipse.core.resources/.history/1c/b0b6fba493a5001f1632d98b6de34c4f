@@ -1,0 +1,13 @@
+package com.example1.demo23;
+
+import org.springframework.boot.SpringApplication;
+
+@SpringBootApplication
+
+public class Demo23Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Demo23Application.class, args);
+	}
+
+}
